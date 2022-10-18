@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppExpandableList.Controls.ExpandableList">
+    <Grid
+        RowDefinitions="Auto,Auto">
+    <HorizontalStackLayout
+        Grid.Row="0">
+        <CheckBox x:Name ="GroupNameCheckBox"/>
+        <Label 
+            x:Name ="GroupNameLabel"
+            Text="GroupName"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Image 
+            x:Name ="GroupNameImage"/>
+    </HorizontalStackLayout>
+        <CollectionView
+            x:Name="CollectionView"
+            Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout
+                        Padding="25,0,0,0">
+                        <CheckBox 
+                            x:Name ="ListItemCheckBox"/>
+                        <Label 
+                            x:Name ="ListItemLabel"
+                            Text="{Binding .}"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>    
+    </Grid>
+</ContentView>

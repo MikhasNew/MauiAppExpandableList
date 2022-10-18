@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MauiAppExpandableList.Controls"
+             x:Class="MauiAppExpandableList.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <controls:ExpandElement 
+                x:Name="ExpandableList1"/>
+            <controls:ExpandElement 
+                x:Name="ExpandableList2"/>
+            <controls:ExpandElement 
+                x:Name="ExpandableList3"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
