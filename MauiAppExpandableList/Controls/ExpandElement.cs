@@ -9,31 +9,44 @@ namespace MauiAppExpandableList.Controls
     internal class ExpandElement : ContentView
     {
 
-        private Dictionary<string, string[]> filtredFilds = new Dictionary<string, string[]>();
+        private static KeyValuePair<string, string[]> filtredFilds = new KeyValuePair<string, string[]>();
 
-        public Dictionary<string, string[]> FiltredFilds
+       
+        public static readonly BindableProperty FiltredFildsProperty = BindableProperty.Create(nameof(FiltredFilds),
+          typeof(KeyValuePair<string, string[]>),
+          typeof(ExpandableList),
+          defaultValue: new KeyValuePair<string, string[]>(),
+          defaultBindingMode: BindingMode.OneWay,
+          propertyChanged: FiltredFildsPropertyChanged);
+        private static void FiltredFildsPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            filtredFilds=(KeyValuePair<string, string[]>)newValue;
+            var control = (ExpandElement)bindable;
+            control.Initialize();
+
+        }
+
+        public KeyValuePair<string, string[]> FiltredFilds
         {
             get
             {
-                return filtredFilds;
+                return (KeyValuePair<string, string[]>)base.GetValue(FiltredFildsProperty);
             }
 
             set
             {
-                filtredFilds = value;
-                foreach (var gr in filtredFilds)
-                    Initialize(gr);
+                base.SetValue(FiltredFildsProperty, value);
             }
-
         }
+
 
         public ExpandElement()
         {
-
         }
-
-        private void Initialize(KeyValuePair<string, string[]> group)
+       
+        private void Initialize()
         {
+            KeyValuePair<string, string[]> group = filtredFilds;
             GroupItem groupItem = new GroupItem();
             groupItem.Key = group.Key;
 

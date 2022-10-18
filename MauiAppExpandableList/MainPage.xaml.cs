@@ -12,7 +12,7 @@ public partial class MainPage : ContentPage
 		filtredFilds.Add("test2", new string[] { "123", "321", "123", "321" });
 		filtredFilds.Add("test3", new string[] { "123", "321", "123", "321" });
        
-        ExpandableList1.FiltredFilds = filtredFilds;
+        ExpandableList1.FiltredFilds = filtredFilds.FirstOrDefault();
         //ExpandableList2.FiltredFilds = filtredFilds;
         //ExpandableList3.FiltredFilds = filtredFilds;
     }

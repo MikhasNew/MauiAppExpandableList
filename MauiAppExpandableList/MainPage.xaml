@@ -11,10 +11,7 @@
             VerticalOptions="Center">
             <controls:ExpandElement 
                 x:Name="ExpandableList1"/>
-            <controls:ExpandElement 
-                x:Name="ExpandableList2"/>
-            <controls:ExpandElement 
-                x:Name="ExpandableList3"/>
+          
 
         </VerticalStackLayout>
     </ScrollView>
